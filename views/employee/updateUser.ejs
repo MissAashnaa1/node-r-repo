@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <title>Update-User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/style/Style.css">
+    <!-- <link href="/style/home.css" rel="stylesheet" /> -->
+    <!-- <link href="/css/bootstrap.min.css" rel="stylesheet" /> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+<body>
+  <%- include('../partials/sidebar'); %>
+  
+    <div style="margin-left:25%">
+        <div class="w3-container w3-teal">
+            <%- include('../partials/header'); %>
+        </div>
+
+        <div class="w3-container">
+          
+            <form action="/updateUser" method="post" name="myForm" onsubmit="return validateForm()">
+              <div class="row mt-3">
+                <input type="text " hidden id="firstName" name="id" value="<%= obj.id %>">
+                    <div class="form-group col-md-3">
+                        <label for="firstName">First Name</label>
+                        <input type="text " class="form-control" id="firstName" name="firstName" placeholder="First Name" value="<%= obj.fName %>">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" value="<%= obj.lName %>">
+                    </div>
+                  <div class="form-group col-md-3">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4"  placeholder="Email" name="email" value="<%= obj.email %>">
+                  </div>
+                </div>
+                
+                <div class="row mt-3">
+                
+                  <div class="form-group col-md-3">
+                    <label for="mobileNumber">Mobile Number</label>
+                    <input type="number" maxlength="10" class="form-control" id="mobileNumber" placeholder="Mobile Number" name="mobileNumber" value="<%= obj.mobileNumber %>">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="dateofBirth">Date Of Birth</label>
+                    <input type="date" class="form-control" id="dateofBirth"  name="dateOfBirth" value="<%= obj.dateOfBirth %>">
+                  </div>
+                  <div style="flex-direction: row;" class="form-group col-md-3">
+                    <p>Select Gender: </p>
+                    <input type="radio" id="maleRadio" name="gender" value="male" <% if(obj.gender=="male"){ %>
+                      checked
+                   <% } %> >
+                    <label for="maleRadio">Male</label><br>
+
+                    <input type="radio" id="femaleRadio" name="gender" value="female"<% if(obj.gender=="female"){ %>
+                      checked
+                   <% } %> >
+                    <label for="femaleRadio">Female</label><br>
+                  </div>
+                </div>
+              
+                  <div class="form-group">
+                    <label for="inputAddress">Address</label>
+                    <textarea type="text" class="form-control" id="inputAddress" placeholder="Enter your address" name="address"><%= obj.address %></textarea>
+                  </div>
+
+                  <div class="row mt-3">
+                  <div class="form-group col-md-3">
+                    <label for="inputCountry">Country</label>
+                    <select id="inputCountry" class="form-control" name="country">
+                      <option <% if (obj.country=="Bangladesh") { %>
+                       selected
+                      <% } %>>Bangladesh</option>
+                      <option <% if (obj.county=="Canada") { %>
+                       selected
+                      <% } %>>Canada</option>
+                      <option <% if (obj.county=="China") { %>
+                       selected
+                      <% } %>>China</option>
+                      <option <% if (obj.county=="France") { %>
+                       selected
+                      <% } %>>France</option>
+                      <option <% if (obj.county=="India") { %>
+                       selected
+                      <% } %>>India</option>
+                      <option <% if (obj.county=="Japana") { %>
+                       selected
+                      <% } %>>Japana</option>
+                      <option <% if (obj.county=="Nepal") { %>
+                       selected
+                      <% } %>>Nepal</option>
+                      <option <% if (obj.county=="Sri Lanka") { %>
+                       selected
+                      <% } %>>Sri Lanka</option>
+                      <option <% if (obj.county=="UK") { %>
+                       selected
+                      <% } %>>UK</option>
+                      <option <% if (obj.county=="USA") { %>
+                       selected
+                      <% } %>>USA</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    <label for="inputState">City</label>
+                    <select id="inputState" class="form-control"  name="city">
+                      <option <% if (obj.city=="City 1") { %>
+                       selected
+                      <% } %>>City 1</option>
+                      <option <% if (obj.city=="City 2") { %>
+                       selected
+                      <% } %>>City 2</option>
+                      <option <% if (obj.city=="City 3") { %>
+                       selected
+                      <% } %>>City 3</option>
+                      <option <% if (obj.city=="City 4") { %>
+                       selected
+                      <% } %>>City 4</option>
+                      <option <% if (obj.city=="City 5") { %>
+                       selected
+                      <% } %>>City 5</option>
+                      <option <% if (obj.city=="City 6") { %>
+                       selected
+                      <% } %>>City 6</option>
+                    </select>
+                  </div>
+                  </div>
+
+                  <h3 class="mt-3">Skills</h3>
+                  <div id="skillsCheckBox" class="checkbox-grid mt-3">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="value1" id="value1" value="AWS"  <% if (obj.skills[0]=="AWS") { %>
+                         checked
+                        <% } %>>
+                        <label class="form-check-label" for="value1">AWS</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="value2" id="value2" value="DevOps" <% if (obj.skills[1]=="DevOps") { %>
+                         checked
+                        <% } %>>
+                        <label class="form-check-label" for="value2">DevOps</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="value3" id="value3" value="Full Stack Developer"  <% if (obj.skills[2]=="Full Stack Developer") { %>
+                         checked
+                        <% } %>>
+                        <label class="form-check-label" for="value3">Full stack Developer</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="value4" id="value4" value="MiddleWare" <% if (obj.skills[3]=="MiddleWare") { %>
+                         checked
+                        <% } %>>
+                        <label class="form-check-label" for="value4">Middleware</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="value5" id="value5" value="QA-Automation" <% if (obj.skills[4]=="QA-Automation") { %>
+                         checked
+                        <% } %>>
+                        <label class="form-check-label" for="value5">QA-Automation</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="value6" id="value6" value="WebServices" <% if (obj.skills[5]=="WebServices") { %>
+                         checked
+                        <% } %>>
+                        <label class="form-check-label" for="value6">WebServices</label>
+                      </div>
+                    
+                  </div>
+                
+                <button type="submit" class="btn btn-primary mt-3">save </button>
+                <button  class="btn btn-danger mt-3" onclick="clearForm()">cancel </button>
+            </form>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+      
+</body>
+</html>

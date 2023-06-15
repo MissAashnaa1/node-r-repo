@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <title>Search-User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/style/Style.css">
+    <!-- <link href="/style/home.css" rel="stylesheet" /> -->
+    <!-- <link href="/css/bootstrap.min.css" rel="stylesheet" /> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+<body>
+  <%- include('../partials/sidebar'); %>
+  
+    <div style="margin-left:25%">
+        <div class="w3-container w3-teal">
+            <%- include('../partials/header'); %>
+        </div>
+
+        <div class="w3-container">
+          <div>
+            <div>
+
+              <div class="row" style="align-items: center;">
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="nameSearch">Name</label>
+                    <input type="text" class="form-control" id="nameSearch" name="name" value="" placeholder="First Name">
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="mobileSearch">Mobile No.</label>
+                    <input type="number" maxlength="10" minlength="10" class="form-control" value="" id="mobileSearch" name="mobile" placeholder="Mobile No">
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <button id="searchBtn" type="button" class="btn btn-success ">Search</button>
+                  <button id="clearBtn" type="button" class="btn btn-danger">Clear</button>
+                  <a href="/createUser"><button class="btn btn-info">Add Employee</button></a>
+                </div>
+              </div>
+
+              <hr>
+              
+    
+            <div id="user-list">
+              <% if(noUser){ %>
+                <h2>No matching records founds!</h2>
+              <% }else{ %>
+                <table>
+                  <tr>
+                    <th>First Name</th>
+                    <th>Last name</th>
+                    <th>Mobile No</th>
+                    <th>Email Id</th>
+                    <th>Gender</th>
+                    <th>Birth Date</th>
+                    <th>Counrty</th>
+                    <th>City</th>
+                    <th>Action</th>
+                  </tr>
+                  <% data.forEach(item => { %>
+                    <tr id="tr-<%= item.id %>">
+                      <td><%= item.fName %></td>
+                      <td><%= item.lName %></td>
+                      <td><%= item.mobileNumber %></td>
+                      <td><%= item.email %></td>
+                      <td><%= item.gender %></td>
+                      <td><%= item.dateOfBirth %></td>
+                      <td><%= item.country %></td>
+                      <td><%= item.city %></td>
+                      <td>
+                        <button id="<%= item.id %>" class="btn btn-secondary btn-sm editBtn mx-2" >Edit</button>
+                        <button id="<%= item.id %>" class="btn btn-danger btn-sm deleteBtn mx-2" >Delete</button>
+                      </td>
+                    </tr>
+                  <% }); %>
+                </table>
+              <% } %>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="/script/searchEmp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+      
+</body>
+</html>

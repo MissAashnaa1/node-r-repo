@@ -1,0 +1,31 @@
+body{
+    background-color: rgb(136, 206, 229);
+    align-content: center;
+    /* justify-content: center; */
+    text-align: center  ;
+    display:flex;
+    flex-direction: column;
+}
+.text{
+    background-color: rgb(25, 108, 192);
+    display: inline;
+    margin:auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+
+}
+form{
+    background-color: rgb(14, 132, 192);
+    margin-right: 35%;
+    margin-left: 35%;
+    padding :10px;
+    border:3px solid;
+    border-radius: 3%;
+    box-shadow: 200;
+}
+.textt
+{
+
+    color:blue
+};

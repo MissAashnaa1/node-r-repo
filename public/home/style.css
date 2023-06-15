@@ -1,0 +1,30 @@
+body {
+    background-color: rgb(127, 146, 255);
+    align-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.text1 {
+    font-size: large;
+    padding: 30px;
+    font-weight: 500;
+    border-radius: 32ch;
+    border: solid 3px;
+    background-color: aliceblue;
+    margin-bottom: 0px;
+    margin-top: 30px;
+}
+
+h1 {
+    font-size: 80px;
+    padding: 20px;
+    /* margin:40px; */
+    font-style: italic;
+}
+
+.highlight {
+    background-color: rgb(150, 88, 231);
+    margin-botto: 0%;
+}

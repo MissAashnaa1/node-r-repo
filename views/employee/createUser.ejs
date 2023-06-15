@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <title>Create-User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/style/Style.css">
+    <!-- <link href="/style/home.css" rel="stylesheet" /> -->
+    <!-- <link href="/css/bootstrap.min.css" rel="stylesheet" /> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+<body>
+  <%- include('../partials/sidebar'); %>
+
+    <div style="margin-left:25%">
+      <div class="w3-container w3-teal">
+          <%- include('../partials/header'); %>
+      </div>
+
+        <div class="w3-container">
+          <div><p><%= phrase %></p></div>
+            
+            <form action="/createUser" method="post" name="myForm" onsubmit="return validateForm()">
+              <div class="row mt-3">
+                    <div class="form-group col-md-3">
+                        <label for="firstName">First Name</label>
+                        <input type="text " class="form-control" id="firstName" name="firstName" placeholder="First Name">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
+                    </div>
+                  <div class="form-group col-md-3">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4"  placeholder="Email" name="email">
+                  </div>
+                </div>
+                
+                <div class="row mt-3">
+                
+                  <div class="form-group col-md-3">
+                    <label for="mobileNumber">Mobile Number</label>
+                    <input type="number" maxlength="10" class="form-control" id="mobileNumber" placeholder="Mobile Number" name="mobileNumber">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="dateofBirth">Date Of Birth</label>
+                    <input type="date" class="form-control" id="dateofBirth" placeholder="Date Of Birth" value="date"  name="dateOfBirth">
+                  </div>
+                  <div style="flex-direction: row;" class="form-group col-md-3">
+                    <p>Select Gender: </p>
+                    <input type="radio" id="maleRadio" name="gender" value="male" checked>
+                    <label for="maleRadio">Male</label><br>
+
+                    <input type="radio" id="femaleRadio" name="gender" value="female">
+                    <label for="femaleRadio">Female</label><br>
+                  </div>
+                </div>
+              
+                  <div class="form-group">
+                    <label for="inputAddress">Address</label>
+                    <textarea type="text" class="form-control" id="inputAddress" placeholder="Enter your address" name="address"></textarea>
+                  </div>
+
+                  <div class="row mt-3">
+                  <div class="form-group col-md-3">
+                    <label for="inputCountry">Country</label>
+                    <select id="inputCountry" class="form-control" name="country">
+                      <option selected>Bangladesh</option>
+                      <option>Canada</option>
+                      <option>China</option>
+                      <option>France</option>
+                      <option>India</option>
+                      <option>Japana</option>
+                      <option>Nepal</option>
+                      <option>Sri Lanka</option>
+                      <option>UK</option>
+                      <option>USA</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    <label for="inputState">City</label>
+                    <select id="inputState" class="form-control"  name="city">
+                      <option selected name="city">City 1</option>
+                      <option name="city">City 2</option>
+                      <option name="city">City 3</option>
+                      <option name="city">City 4</option>
+                      <option name="city">City 5</option>
+                      <option name="city">City 6</option>
+                    </select>
+                  </div>
+                  </div>
+
+                  <h3 class="mt-3">Skills</h3>
+                  <div id="skillsCheckBox" class="checkbox-grid mt-3">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="value1" id="value1" value="AWS" >
+                        <label class="form-check-label" for="value1">AWS</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="value2" id="value2" value="DevOps">
+                        <label class="form-check-label" for="value2">DevOps</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="value3" id="value3" value="Full Stack Developer" >
+                        <label class="form-check-label" for="value3">Full stack Developer</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="value4" id="value4" value="MiddleWare">
+                        <label class="form-check-label" for="value4">Middleware</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="value5" id="value5" value="QA-Automation">
+                        <label class="form-check-label" for="value5">QA-Automation</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="value6" id="value6" value="WebServices">
+                        <label class="form-check-label" for="value6">WebServices</label>
+                      </div>
+                    
+                  </div>
+                
+                <button type="submit" class="btn btn-primary mt-3">save </button>
+                <button  class="btn btn-danger mt-3" onclick="clearForm()">cancel </button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+      
+</body>
+</html>

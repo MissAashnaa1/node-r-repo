@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1686812987507,
+    "fName": "Aashnaa1",
+    "lName": "G",
+    "email": "missaashnaa1@gmail.com",
+    "mobileNumber": "9034356393",
+    "dateOfBirth": "",
+    "gender": "female",
+    "address": "hjhjhjh",
+    "country": "India",
+    "city": "City 1",
+    "skills": [null, null, "Full Stack Developer", null, "QA-Automation", null]
+  },
+  {
+    "id": 1686813074503,
+    "fName": "amit",
+    "lName": "hhhhh",
+    "email": "missaashnaa1@gmail.com",
+    "mobileNumber": "9034364468",
+    "dateOfBirth": "",
+    "gender": "female",
+    "address": "Vijay Nagar",
+    "country": "India",
+    "city": "City 1",
+    "skills": [null, null, null, null, null, "WebServices"]
+  },
+  {
+    "id": 1686813074507,
+    "fName": "aalishaa",
+    "lName": "hhhhh",
+    "email": "missaashnaa1@gmail.com",
+    "mobileNumber": "9034364468",
+    "dateOfBirth": "",
+    "gender": "female",
+    "address": "Vijay Nagar",
+    "country": "India",
+    "city": "City 1",
+    "skills": [null, null, null, null, null, "WebServices"]
+  },
+  {
+    "id": 1686813074528,
+    "fName": "yugh",
+    "lName": "hhhhh",
+    "email": "missaashnaa1@gmail.com",
+    "mobileNumber": "9034364468",
+    "dateOfBirth": "",
+    "gender": "female",
+    "address": "Vijay Nagar",
+    "country": "India",
+    "city": "City 1",
+    "skills": [null, null, null, null, null, "WebServices"]
+  },
+  {
+    "id": 1686813074538,
+    "fName": "aalish",
+    "lName": "hhhhh",
+    "email": "missaashnaa1@gmail.com",
+    "mobileNumber": "9034364468",
+    "dateOfBirth": "",
+    "gender": "female",
+    "address": "Vijay Nagar",
+    "country": "India",
+    "city": "City 1",
+    "skills": [null, null, null, null, null, "WebServices"]
+  },
+  {
+    "id": 1686813074228,
+    "fName": "aalia",
+    "lName": "hhhhh",
+    "email": "missaashnaa1@gmail.com",
+    "mobileNumber": "9034364468",
+    "dateOfBirth": "",
+    "gender": "female",
+    "address": "Vijay Nagar",
+    "country": "India",
+    "city": "City 1",
+    "skills": [null, null, null, null, null, "WebServices"]
+  }
+]
