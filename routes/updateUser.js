@@ -1,6 +1,7 @@
 const express=require("express")
 const router=express.Router()
 const fs = require("fs");
+const path = require('path')
 const dir="H:\\javascript\\node-project";
 
 router.route("/").get(function (req, res) {
@@ -69,7 +70,7 @@ router.route("/").get(function (req, res) {
         // }
 
         else {
-            fs.readFile(__dirname + "/data.json", "utf-8", function (err, data) {
+            fs.readFile(path.join(__dirname,'..','data.json'), "utf-8", function (err, data) {
                 let info = [];
                 let check = false;
                 if (data.length != 0) {
@@ -92,7 +93,7 @@ router.route("/").get(function (req, res) {
                   }
                 }
                     
-                    fs.writeFile(__dirname + "/data.json", JSON.stringify(info), function (err) {
+                    fs.writeFile(path.join(__dirname,'..','data.json'), JSON.stringify(info), function (err) {
                         
                       res.render("employee/createUser.ejs", { phrase: 'User updated' })
                       return;
