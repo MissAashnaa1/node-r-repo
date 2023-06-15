@@ -9,7 +9,7 @@ router
     
     // res.render("searchUser.ejs", { noUser: false, data:[{key1:"kay1",key2:"key2",key3:"key3"}, {key1:"kay1",key2:"key2",key3:"key3"},{key1:"kay1",key2:"key2",key3:"key3"}]})
     let info=[];
-    fs.readFile(dir + "/data.json", "utf-8", function (err, data){
+    fs.readFile(__dirname + "/data.json", "utf-8", function (err, data){
         // console.log(data,typeof data)
         info = JSON.parse(data);
         // console.log(data,typeof data)
@@ -30,7 +30,7 @@ router
             console.log("if")
             let info=[]
             // let noUser = false;
-            fs.readFile(dir + "/data.json", "utf-8", (err, data)=>{
+            fs.readFile(__dirname + "/data.json", "utf-8", (err, data)=>{
                 if(err){
                     console.log(err)
                 }else{
@@ -48,7 +48,7 @@ router
         else if(mobile=="" && name!=""){
             console.log("elseif 1")
             let info=[];
-            fs.readFile(dir + "/data.json", "utf-8", function (err, data){
+            fs.readFile(_dirname + "/data.json", "utf-8", function (err, data){
                 console.log(data,typeof data)
                 data = JSON.parse(data);
                 console.log(data,typeof data)
@@ -70,7 +70,7 @@ router
         }
         else if(mobile!=""&&name==""){
             console.log("else if 2")
-            fs.readFile(dir + "/data.json", "utf-8", function (err, data){
+            fs.readFile(__dirname + "/data.json", "utf-8", function (err, data){
                 // console.log(data)
                 data = JSON.parse(data)
                 let info=[];
@@ -95,7 +95,7 @@ router
     })
 .delete('/',(req,res)=>{
     // console.log(req.body)
-    fs.readFile(dir +'/data.json','utf-8',(err,data)=>{
+    fs.readFile(__dirname +'/data.json','utf-8',(err,data)=>{
         if(data.length == 0) info =[]
         else info = JSON.parse(data);
 
@@ -107,7 +107,7 @@ router
             }
         }
 
-        fs.writeFile(dir+"/data.json",JSON.stringify(info),(err)=>{
+        fs.writeFile(__dirname+"/data.json",JSON.stringify(info),(err)=>{
             if(err) res.json({msg:"error in writing data.json",success:false})
             else res.json({msg:'info delete req',success:true})
             return;
@@ -118,7 +118,7 @@ router
     // console.log(req.body)
     // res.redirect('/createUser')
 
-    fs.readFile(dir +'/data.json','utf-8',(err,data)=>{
+    fs.readFile(__dirname +'/data.json','utf-8',(err,data)=>{
         if(data.length == 0) info =[]
         else info = JSON.parse(data);
         for(let i=0; i < info.length;i++){

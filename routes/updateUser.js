@@ -69,7 +69,7 @@ router.route("/").get(function (req, res) {
         // }
 
         else {
-            fs.readFile(dir + "/data.json", "utf-8", function (err, data) {
+            fs.readFile(__dirname + "/data.json", "utf-8", function (err, data) {
                 let info = [];
                 let check = false;
                 if (data.length != 0) {
@@ -92,7 +92,7 @@ router.route("/").get(function (req, res) {
                   }
                 }
                     
-                    fs.writeFile(dir + "/data.json", JSON.stringify(info), function (err) {
+                    fs.writeFile(__dirname + "/data.json", JSON.stringify(info), function (err) {
                         
                       res.render("employee/createUser.ejs", { phrase: 'User updated' })
                       return;
